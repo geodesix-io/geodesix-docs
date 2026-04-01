@@ -1,0 +1,88 @@
+name: Deploy Docs
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * *' # Daily at 6am UTC
+
+# Allow only one concurrent deployment
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout docs site
+        uses: actions/checkout@v4
+
+      # --- Pull docs from private SDK repos ---
+
+      - name: Pull PHP SDK docs
+        uses: actions/checkout@v4
+        with:
+          repository: geodesix.io/geodesix-sdk-php
+          token: ${{ secrets.DOCS_GITHUB_TOKEN }}
+          path: _sdk-php
+          sparse-checkout: docs
+
+      - name: Pull Python SDK docs
+        uses: actions/checkout@v4
+        with:
+          repository: geodesix.io/geodesix-sdk-python
+          token: ${{ secrets.DOCS_GITHUB_TOKEN }}
+          path: _sdk-python
+          sparse-checkout: docs
+
+      - name: Pull WordPress Plugin docs
+        uses: actions/checkout@v4
+        with:
+          repository: geodesix.io/geodesix-sdk-wordpress
+          token: ${{ secrets.DOCS_GITHUB_TOKEN }}
+          path: _sdk-wp
+          sparse-checkout: docs
+
+      - name: Copy docs into place
+        run: |
+          # Remove placeholder docs and replace with real content from SDK repos
+          rm -rf docs/php-sdk docs/python-sdk docs/wordpress-plugin
+          cp -r _sdk-php/docs/ docs/php-sdk/
+          cp -r _sdk-python/docs/ docs/python-sdk/
+          cp -r _sdk-wp/docs/ docs/wordpress-plugin/
+          # Clean up temporary checkouts
+          rm -rf _sdk-php _sdk-python _sdk-wp
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
