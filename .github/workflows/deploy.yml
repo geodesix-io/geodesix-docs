@@ -32,7 +32,7 @@ jobs:
       - name: Pull PHP SDK docs
         uses: actions/checkout@v4
         with:
-          repository: geodesix.io/geodesix-sdk-php
+          repository: geodesix-io/geodesix-sdk-php
           token: ${{ secrets.DOCS_GITHUB_TOKEN }}
           path: _sdk-php
           sparse-checkout: README.md
@@ -41,7 +41,7 @@ jobs:
       - name: Pull Python SDK docs
         uses: actions/checkout@v4
         with:
-          repository: geodesix.io/geodesix-sdk-python
+          repository: geodesix-io/geodesix-sdk-python
           token: ${{ secrets.DOCS_GITHUB_TOKEN }}
           path: _sdk-python
           sparse-checkout: README.md
@@ -50,7 +50,7 @@ jobs:
       - name: Pull WordPress Plugin docs
         uses: actions/checkout@v4
         with:
-          repository: geodesix.io/geodesix-sdk-wordpress
+          repository: geodesix-io/geodesix-sdk-wordpress
           token: ${{ secrets.DOCS_GITHUB_TOKEN }}
           path: _sdk-wp
           sparse-checkout: UserGuide.md
