@@ -35,7 +35,8 @@ jobs:
           repository: geodesix.io/geodesix-sdk-php
           token: ${{ secrets.DOCS_GITHUB_TOKEN }}
           path: _sdk-php
-          sparse-checkout: docs
+          sparse-checkout: README.md
+          sparse-checkout-cone-mode: false
 
       - name: Pull Python SDK docs
         uses: actions/checkout@v4
@@ -43,7 +44,8 @@ jobs:
           repository: geodesix.io/geodesix-sdk-python
           token: ${{ secrets.DOCS_GITHUB_TOKEN }}
           path: _sdk-python
-          sparse-checkout: docs
+          sparse-checkout: README.md
+          sparse-checkout-cone-mode: false
 
       - name: Pull WordPress Plugin docs
         uses: actions/checkout@v4
@@ -51,15 +53,20 @@ jobs:
           repository: geodesix.io/geodesix-sdk-wordpress
           token: ${{ secrets.DOCS_GITHUB_TOKEN }}
           path: _sdk-wp
-          sparse-checkout: docs
+          sparse-checkout: UserGuide.md
+          sparse-checkout-cone-mode: false
 
       - name: Copy docs into place
         run: |
           # Remove placeholder docs and replace with real content from SDK repos
           rm -rf docs/php-sdk docs/python-sdk docs/wordpress-plugin
-          cp -r _sdk-php/docs/ docs/php-sdk/
-          cp -r _sdk-python/docs/ docs/python-sdk/
-          cp -r _sdk-wp/docs/ docs/wordpress-plugin/
+          mkdir -p docs/php-sdk docs/python-sdk docs/wordpress-plugin
+
+          # Prepend Docusaurus frontmatter and copy each file
+          { printf '---\ntitle: PHP SDK\nsidebar_position: 1\n---\n\n'; cat _sdk-php/README.md; } > docs/php-sdk/README.md
+          { printf '---\ntitle: Python SDK\nsidebar_position: 1\n---\n\n'; cat _sdk-python/README.md; } > docs/python-sdk/README.md
+          { printf '---\ntitle: WordPress Plugin\nsidebar_position: 1\n---\n\n'; cat _sdk-wp/UserGuide.md; } > docs/wordpress-plugin/UserGuide.md
+
           # Clean up temporary checkouts
           rm -rf _sdk-php _sdk-python _sdk-wp
 
