@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Build output
+build/
+.docusaurus/
+
+# Misc
+.DS_Store
+*.log
+.env
+.env.local
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Temporary SDK checkouts (CI only)
+_sdk-php/
+_sdk-python/
+_sdk-wp/
