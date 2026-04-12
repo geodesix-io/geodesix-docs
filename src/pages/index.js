@@ -37,6 +37,23 @@ function GuideCard({title, description, link}) {
   );
 }
 
+function HomepageIntro() {
+  return (
+    <section className={styles.intro}>
+      <div className="container">
+        <p className={styles.introLede}>
+          Geodesix is the AI-native content licensing platform connecting premium publishers
+          with LLMs. A scalable, safe and fair partnership solution for AI developers and
+          content creators.
+        </p>
+        <p className={styles.introCta}>
+          Choose an SDK or plugin below to start integrating Geodesix into your stack.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -58,6 +75,7 @@ export default function Home() {
       title="Home"
       description={siteConfig.tagline}>
       <HomepageHeader />
+      <HomepageIntro />
       <main>
         <section className={styles.guides}>
           <div className="container">

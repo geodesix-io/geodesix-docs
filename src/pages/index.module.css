@@ -18,6 +18,38 @@
   }
 }
 
+.intro {
+  padding: 3rem 0 0;
+  text-align: center;
+}
+
+.intro::before {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: var(--ifm-color-primary);
+  margin: 0 auto 1.75rem;
+}
+
+.introLede {
+  max-width: 620px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  line-height: 1.75;
+  color: var(--ifm-color-emphasis-800);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.introCta {
+  max-width: 620px;
+  margin: 0.75rem auto 0;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+  letter-spacing: 0.02em;
+}
+
 .guides {
   padding: 3rem 0;
 }
