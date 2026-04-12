@@ -65,7 +65,7 @@ jobs:
           # Prepend Docusaurus frontmatter and copy each file
           { printf '%s\n' '---' 'title: PHP SDK' 'sidebar_position: 1' '---' ''; cat _sdk-php/README.md; } > docs/php-sdk/README.md
           { printf '%s\n' '---' 'title: Python SDK' 'sidebar_position: 1' '---' ''; cat _sdk-python/README.md; } > docs/python-sdk/README.md
-          { printf '%s\n' '---' 'title: WordPress Plugin' 'sidebar_position: 1' '---' ''; cat _sdk-wp/UserGuide.md; } > docs/wordpress-plugin/UserGuide.md
+          { printf '%s\n' '---' 'title: WordPress Plugin' 'sidebar_position: 1' '---' ''; cat _sdk-wp/UserGuide.md; } > docs/wordpress-plugin/README.md
 
           # Clean up temporary checkouts
           rm -rf _sdk-php _sdk-python _sdk-wp
