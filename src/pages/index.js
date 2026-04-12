@@ -10,27 +10,23 @@ const guides = [
     title: 'PHP SDK',
     description: 'Integrate Geodesix into your PHP application with our SDK. Covers installation, configuration, and data collection setup.',
     link: '/docs/php-sdk/',
-    icon: '{}',
   },
   {
     title: 'Python SDK',
     description: 'Get started with the Geodesix Python SDK. Ideal for Python-based content platforms and data pipelines.',
     link: '/docs/python-sdk/',
-    icon: '{}',
   },
   {
     title: 'WordPress Plugin',
-    description: 'Install and configure the Geodesix WordPress plugin. No coding required — set up directly from your WordPress admin.',
+    description: 'Install and configure the Geodesix WordPress plugin. No coding required - set up directly from your WordPress admin.',
     link: '/docs/wordpress-plugin/',
-    icon: '{}',
   },
 ];
 
-function GuideCard({title, description, link, icon}) {
+function GuideCard({title, description, link}) {
   return (
     <div className={clsx('col col--4')}>
       <div className={styles.guideCard}>
-        <div className={styles.guideIcon}>{icon}</div>
         <Heading as="h3">{title}</Heading>
         <p>{description}</p>
         <Link className="button button--primary button--md" to={link}>
