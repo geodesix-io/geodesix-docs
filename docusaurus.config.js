@@ -13,7 +13,7 @@ const config = {
   url: 'https://docs.geodesix.com',
   baseUrl: '/',
 
-  organizationName: 'geodesix',
+  organizationName: 'geodesix-io',
   projectName: 'geodesix-docs',
 
   onBrokenLinks: 'warn',
