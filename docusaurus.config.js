@@ -10,8 +10,8 @@ const config = {
     v4: true,
   },
 
-  url: 'https://geodesix.github.io',
-  baseUrl: '/geodesix-docs/',
+  url: 'https://docs.geodesix.com',
+  baseUrl: '/',
 
   organizationName: 'geodesix',
   projectName: 'geodesix-docs',
