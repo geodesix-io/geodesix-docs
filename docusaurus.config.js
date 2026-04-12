@@ -51,7 +51,8 @@ const config = {
     ({
       colorMode: {
         defaultMode: 'light',
-        respectPrefersColorScheme: true,
+        disableSwitch: true,
+        respectPrefersColorScheme: false,
       },
       navbar: {
         title: 'Geodesix Docs',
