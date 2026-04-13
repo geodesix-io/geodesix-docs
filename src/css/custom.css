@@ -1,20 +1,21 @@
 /**
  * Geodesix brand theme for Docusaurus.
  * Override Infima CSS variables here.
- * Adjust primary colours below to match Geodesix brand guidelines.
  */
 
 :root {
   --ifm-color-primary: #e91e8c;
-  --ifm-color-primary-dark: #d21b7e;
-  --ifm-color-primary-darker: #c61a77;
-  --ifm-color-primary-darkest: #a31562;
+  --ifm-color-primary-dark: #c4177a;
+  --ifm-color-primary-darker: #b81572;
+  --ifm-color-primary-darkest: #96125d;
   --ifm-color-primary-light: #eb3598;
   --ifm-color-primary-lighter: #ed47a1;
   --ifm-color-primary-lightest: #f272bb;
+  --ifm-navbar-height: 78.39px;
+  --ifm-navbar-padding-vertical: 1rem;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --ifm-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  --ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 }
 
@@ -61,4 +62,127 @@
     white-space: pre-wrap !important;
     word-wrap: break-word !important;
   }
+}
+
+/* ─── Animated logo ─────────────────────────────────────────────────── */
+
+.geodesix-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.geodesix-logo-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  overflow: hidden;
+}
+
+.geodesix-logo-dots-animated {
+  width: 36px;
+  height: 36px;
+}
+
+.geodesix-logo-dot {
+  fill: #1a1a2e;
+  transition: fill 0.2s ease;
+}
+
+.geodesix-logo-text {
+  font-family: 'Sarabun', sans-serif;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  align-items: flex-end;
+}
+
+.geodesix-logo-name {
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #1a1a2e;
+  letter-spacing: -0.5px;
+}
+
+.geodesix-logo-tagline {
+  font-size: 11px;
+  font-weight: 400;
+  color: #6b7280;
+}
+
+/* Flickering dot animations - random pairs, max 2 colored at once */
+.geodesix-dot-a { animation: flickerA 12s infinite; }
+.geodesix-dot-b { animation: flickerB 12s infinite; }
+.geodesix-dot-c { animation: flickerC 12s infinite; }
+.geodesix-dot-d { animation: flickerD 12s infinite; }
+.geodesix-dot-e { animation: flickerE 12s infinite; }
+.geodesix-dot-f { animation: flickerF 12s infinite; }
+.geodesix-dot-g { animation: flickerG 12s infinite; }
+.geodesix-dot-h { animation: flickerH 12s infinite; }
+
+/* Pair 1: dots A + E (0-12%) */
+@keyframes flickerA {
+  0%, 2%   { fill: #1A1A2E; }
+  4%, 10%  { fill: #E53935; }
+  12%, 100% { fill: #1A1A2E; }
+}
+@keyframes flickerE {
+  0%, 2%   { fill: #1A1A2E; }
+  4%, 10%  { fill: #9CA3AF; }
+  12%, 100% { fill: #1A1A2E; }
+}
+
+/* Pair 2: dots C + F (16-28%) */
+@keyframes flickerC {
+  0%, 16%  { fill: #1A1A2E; }
+  18%, 26% { fill: #9CA3AF; }
+  28%, 100% { fill: #1A1A2E; }
+}
+@keyframes flickerF {
+  0%, 16%  { fill: #1A1A2E; }
+  18%, 26% { fill: #E53935; }
+  28%, 100% { fill: #1A1A2E; }
+}
+
+/* Pair 3: dots B + G (32-44%) */
+@keyframes flickerB {
+  0%, 32%  { fill: #1A1A2E; }
+  34%, 42% { fill: #E53935; }
+  44%, 100% { fill: #1A1A2E; }
+}
+@keyframes flickerG {
+  0%, 32%  { fill: #1A1A2E; }
+  34%, 42% { fill: #9CA3AF; }
+  44%, 100% { fill: #1A1A2E; }
+}
+
+/* Pair 4: dots D + H (48-60%) */
+@keyframes flickerD {
+  0%, 48%  { fill: #1A1A2E; }
+  50%, 58% { fill: #9CA3AF; }
+  60%, 100% { fill: #1A1A2E; }
+}
+@keyframes flickerH {
+  0%, 48%  { fill: #1A1A2E; }
+  50%, 58% { fill: #E53935; }
+  60%, 100% { fill: #1A1A2E; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .geodesix-logo-dot {
+    animation: none;
+    fill: #1a1a2e;
+  }
+}
+
+/* Defensive: hide empty navbar title if Docusaurus renders one */
+.navbar__brand .navbar__title:empty {
+  display: none;
 }

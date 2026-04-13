@@ -4,7 +4,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'Geodesix Docs',
   tagline: 'Developer documentation for Geodesix integration tools',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.svg',
 
   future: {
     v4: true,
@@ -23,6 +23,15 @@ const config = {
       onBrokenMarkdownLinks: 'warn',
     },
   },
+
+  headTags: [
+    { tagName: 'link', attributes: { rel: 'preconnect', href: 'https://fonts.googleapis.com' } },
+    { tagName: 'link', attributes: { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' } },
+  ],
+
+  stylesheets: [
+    'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Sarabun:wght@400;700;800&display=swap',
+  ],
 
   i18n: {
     defaultLocale: 'en',
@@ -68,7 +77,7 @@ const config = {
         respectPrefersColorScheme: false,
       },
       navbar: {
-        title: 'Geodesix Docs',
+        title: '',
         items: [
           {
             type: 'docSidebar',

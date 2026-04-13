@@ -17,6 +17,7 @@
     "@docusaurus/core": "3.9.2",
     "@docusaurus/preset-classic": "3.9.2",
     "@easyops-cn/docusaurus-search-local": "^0.55.1",
+    "@fontsource/sarabun": "^5.2.8",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
     "html2pdf.js": "^0.14.0",
