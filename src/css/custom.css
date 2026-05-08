@@ -11,6 +11,7 @@
   --ifm-color-primary-light: #eb3598;
   --ifm-color-primary-lighter: #ed47a1;
   --ifm-color-primary-lightest: #f272bb;
+  --geodesix-dot-off: #1A1A2E;
   --ifm-navbar-height: 78.39px;
   --ifm-navbar-padding-vertical: 1rem;
   --ifm-code-font-size: 95%;
@@ -28,6 +29,15 @@
   --ifm-color-primary-lighter: #f794c5;
   --ifm-color-primary-lightest: #fabadb;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --geodesix-dot-off: #e5e7eb;
+}
+
+[data-theme='dark'] .geodesix-logo-name {
+  color: var(--ifm-font-color-base);
+}
+
+[data-theme='dark'] .geodesix-logo-tagline {
+  color: var(--ifm-color-emphasis-600);
 }
 
 /* Match Geodesix site footer colour */
@@ -90,7 +100,7 @@
 }
 
 .geodesix-logo-dot {
-  fill: #1a1a2e;
+  fill: var(--geodesix-dot-off);
   transition: fill 0.2s ease;
 }
 
@@ -129,56 +139,56 @@
 
 /* Pair 1: dots A + E (0-12%) */
 @keyframes flickerA {
-  0%, 2%   { fill: #1A1A2E; }
+  0%, 2%   { fill: var(--geodesix-dot-off); }
   4%, 10%  { fill: #E53935; }
-  12%, 100% { fill: #1A1A2E; }
+  12%, 100% { fill: var(--geodesix-dot-off); }
 }
 @keyframes flickerE {
-  0%, 2%   { fill: #1A1A2E; }
+  0%, 2%   { fill: var(--geodesix-dot-off); }
   4%, 10%  { fill: #9CA3AF; }
-  12%, 100% { fill: #1A1A2E; }
+  12%, 100% { fill: var(--geodesix-dot-off); }
 }
 
 /* Pair 2: dots C + F (16-28%) */
 @keyframes flickerC {
-  0%, 16%  { fill: #1A1A2E; }
+  0%, 16%  { fill: var(--geodesix-dot-off); }
   18%, 26% { fill: #9CA3AF; }
-  28%, 100% { fill: #1A1A2E; }
+  28%, 100% { fill: var(--geodesix-dot-off); }
 }
 @keyframes flickerF {
-  0%, 16%  { fill: #1A1A2E; }
+  0%, 16%  { fill: var(--geodesix-dot-off); }
   18%, 26% { fill: #E53935; }
-  28%, 100% { fill: #1A1A2E; }
+  28%, 100% { fill: var(--geodesix-dot-off); }
 }
 
 /* Pair 3: dots B + G (32-44%) */
 @keyframes flickerB {
-  0%, 32%  { fill: #1A1A2E; }
+  0%, 32%  { fill: var(--geodesix-dot-off); }
   34%, 42% { fill: #E53935; }
-  44%, 100% { fill: #1A1A2E; }
+  44%, 100% { fill: var(--geodesix-dot-off); }
 }
 @keyframes flickerG {
-  0%, 32%  { fill: #1A1A2E; }
+  0%, 32%  { fill: var(--geodesix-dot-off); }
   34%, 42% { fill: #9CA3AF; }
-  44%, 100% { fill: #1A1A2E; }
+  44%, 100% { fill: var(--geodesix-dot-off); }
 }
 
 /* Pair 4: dots D + H (48-60%) */
 @keyframes flickerD {
-  0%, 48%  { fill: #1A1A2E; }
+  0%, 48%  { fill: var(--geodesix-dot-off); }
   50%, 58% { fill: #9CA3AF; }
-  60%, 100% { fill: #1A1A2E; }
+  60%, 100% { fill: var(--geodesix-dot-off); }
 }
 @keyframes flickerH {
-  0%, 48%  { fill: #1A1A2E; }
+  0%, 48%  { fill: var(--geodesix-dot-off); }
   50%, 58% { fill: #E53935; }
-  60%, 100% { fill: #1A1A2E; }
+  60%, 100% { fill: var(--geodesix-dot-off); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .geodesix-logo-dot {
     animation: none;
-    fill: #1a1a2e;
+    fill: var(--geodesix-dot-off);
   }
 }
 
